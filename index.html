@@ -16,14 +16,15 @@
       
       <!-- begin 生成文章列表 -->
       <div><ul id="article_list"></ul></div>
-      <script type="text/javascript" src="articles.json"></script>
+      <script type="text/javascript" src="articles.js"></script>
       <script type="text/javascript">
         var target = document.getElementById('article_list');
         var buffer = "";
         for (var cat_key in articles) {
           buffer = "<li>" + cat_key + "<ol>";
-          for (var art_item in articles[cat_key]) {
-            buffer += "<li><a href=\"" + art_item["file"] + ">《" + art_item["title"] + "》</a></li>";
+          for (var i = 0; i < articles[cat_key].length; i++) {
+            // alert("<li><a href=\"" + articles[cat_key][i]["file"] + "\">《" + articles[cat_key][i]["title"] + "》</a></li>");
+            buffer += "<li><a href=\"" + articles[cat_key][i]["file"] + "\">《" + articles[cat_key][i]["title"] + "》</a></li>";
           }
           buffer += "</ol></li>";
           target.innerHTML += buffer;
